@@ -9,11 +9,10 @@ search-form {
     box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.2);
 
     input {
-        color: $primaryColor;
-        border: 0px;
-        padding-left: 10px;
         width: 95%;
         margin-top: -2px;
+        color: $primaryColor;
+        background-color: white;
         font-family: "Roboto Mono", monospace;
     }
 }
