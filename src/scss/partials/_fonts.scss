@@ -1,0 +1,25 @@
+@font-face {
+    font-family: fipps;
+    src: url('../fonts/Fipps-Regular.otf')
+}
+
+@font-face {
+    font-family: bebas;
+    src: url('../fonts/BebasNeue.otf')
+}
+
+a {
+    text-decoration: none;
+    font-family: bebas;
+    font-weight: 400;
+    letter-spacing: 1.2px;
+}
+
+h1 {
+    color: blue;
+    font-family: bebas;
+}
+
+p {
+    font-family: "Serif";
+}

@@ -1,0 +1,54 @@
+.podium {
+    width: 100%;
+    padding: 0 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+
+    .podium-element {
+        display: flex;
+        flex-direction: row;
+
+
+        .data {
+            display: flex;
+            flex-direction: column;
+            letter-spacing: 1.2px;
+
+            h3 {
+                font-size: 18px;
+                font-weight: 400;
+                font-family: fipps;
+                color: $primaryColor;
+            }
+
+            span {
+                font-size: 18px;
+                font-family: bebas;
+
+
+                strong {
+                    color: $primaryColor;
+                }
+            }
+        }
+    }
+
+    .podium-step {
+        border-top: 4px solid rgba(154, 21, 10, 0.7);
+        background-color: #fb4c3d;
+        box-shadow: inset 0px 0 7px 1px rgba(0, 0, 0, 0.4);
+
+        &.-low {
+            height: 25px;
+        }
+
+        &.-medium {
+            height: 40px;
+        }
+
+        &.-high {
+            height:  55px;
+        }
+    }
+}

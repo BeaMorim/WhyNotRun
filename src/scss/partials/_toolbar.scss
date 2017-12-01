@@ -1,0 +1,77 @@
+.toolbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: $bgColor;
+
+    .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        h1 {
+            line-height: 1;
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+            font-family: fipps;
+            font-size: 20px;
+            font-weight: 400;
+            color: $primaryColor;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+
+        span {
+            margin-top: -10px;
+            line-height: 1;
+            font-size: 28px;
+            font-weight: 400;
+        }
+    }
+
+    .menu {
+        ul {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+
+            li {
+                display: flex;
+                justify-content: center;
+                padding: 0 5px;
+
+                &:first-child {
+                    padding-left: 0;    
+                }
+
+                &:last-child {
+                    padding-right: 0;
+
+                    a {
+                        &:hover {
+                            padding-bottom: 0px;
+                            border-bottom: 0px;
+                        }
+                    }
+                }
+
+                a {
+                    transition: 0.3s all ease;
+                    color: $primaryColor;
+                    line-height: 15px;
+                    font-size: 18px;
+
+                    &:hover {
+                        padding-bottom: 2px;
+                        border-bottom: 2px solid $primaryColor;
+                    }
+                }
+            }
+        }
+    }
+}

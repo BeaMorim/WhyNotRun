@@ -1,0 +1,17 @@
+<div ng-class="{modal: createPostActive}">
+    <div class="create-post" md-whiteframe="3" ng-class="{'-active': createPostActive}">
+        <span>DETONE UMA TECNOLOGIA!</span>
+        <div class="input-group">
+            <input type="text" md-whiteframe="2" placeholder="Este é seu espaço para desabafar..." ng-click="active()">
+            <i></i>
+            <input type="text" md-whiteframe="2" placeholder="Insira as tecnologias relacionadas a esse tópico. Use enter para separar." ng-if="createPostActive">
+            <textarea rows="5" md-whiteframe="2" placeholder="Detone as tecnologias!" ng-if="createPostActive"></textarea>
+            <div class="buttons-group" ng-if="createPostActive">
+                <button ng-click="inactive()">
+                    <i></i>CANCELAR</button>
+                <button class="accept">
+                    <i></i>ENVIAR</button>
+            </div>
+        </div>
+    </div>
+</div>

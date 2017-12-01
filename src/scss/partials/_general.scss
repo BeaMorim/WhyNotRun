@@ -1,0 +1,67 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+@media(min-width: 1366px) {
+    body {
+        background: url(../images/buguinho.png) no-repeat right 5px top 80px fixed;
+        background-size: 10.5%;
+        height: auto !important;
+    }
+}
+
+@media(min-width: 1440px) {
+    body {
+        background: url(../images/buguinho.png) no-repeat right 5% top 90px fixed;
+        background-size: 11%;
+        height: auto !important;
+    }
+}
+
+ul {
+    list-style: none;
+    li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+button {
+    transition: 0.4s background-color ease;
+    transition: 0.4s color ease;
+    font-family: bebas;
+    font-size: 18px;
+    letter-spacing: 1.2px;
+    font-weight: 400;
+    padding: 8px 12px;
+    background-color: $primaryColor;
+    color: #fff;
+    border: 0px;
+    margin-right: 15px;
+    &:last-child {
+        margin-right: 0;
+    }
+    &.accept {
+        background-color: $secondaryColor;
+        &:hover {
+            border: 2px solid $secondaryColor;
+            background-color: #fff;
+            color: $secondaryColor;
+        }
+    }
+    &:hover {
+        border: 2px solid $primaryColor;
+        padding: 6px 10px;
+        background-color: #fff;
+        color: $primaryColor;
+    }
+}
+
+input {
+    display: flex;
+    align-items: center;
+    border: 0px;
+}

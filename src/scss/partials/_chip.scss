@@ -1,0 +1,14 @@
+md-chips-wrap {
+    box-shadow: 0px 0px !important;
+    padding-bottom: 0px !important;
+
+    md-chip {
+        border: 2px solid $primaryColor;
+        border-radius: 0px !important;
+        background-color: #fff !important;
+        font-family: bebas;
+        font-size: 14px;
+        letter-spacing: 1.2px;
+    }
+}
+

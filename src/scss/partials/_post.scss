@@ -1,0 +1,133 @@
+.post {
+    margin-bottom: 40px;
+    .reactions {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        font-family: bebas;
+        letter-spacing: 1.2px;
+        .disagree {
+            a {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                color: $secondaryColor;
+                &:before {
+                    content: '';
+                    display: block;
+                    background-image: url("../images/disagree.png");
+                    background-repeat: no-repeat;
+                    min-width: 55px;
+                    min-height: 39px;
+                    padding-bottom: 5px;
+                    background-size: auto;
+                }
+            }
+        }
+        .agree {
+            a {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                color: $primaryColor;
+                &:before {
+                    content: '';
+                    display: block;
+                    background-image: url("../images/agree.png");
+                    background-repeat: no-repeat;
+                    min-width: 44px;
+                    min-height: 39px;
+                    padding-bottom: 5px;
+                    background-size: auto;
+                }
+            }
+        }
+    }
+    .reactions-bar {
+        display: flex;
+        .agree-bar {
+            width: 50%;
+            height: 5px;
+            background-color: $secondaryColor;
+        }
+        .disagree-bar {
+            width: 50%;
+            height: 5px;
+            background-color: $primaryColor;
+        }
+    }
+    .post-content {
+        padding: 30px 10%;
+        background: #fff;
+        header {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 30px;
+            .author-info {
+                display: flex;
+                align-items: center;
+                font-weight: 400;
+                .data {
+                    p {
+                        display: flex;
+                        flex-direction: column;
+                        font-family: bebas;
+                        letter-spacing: 1.2px;
+                    }
+                }
+            }
+        }
+        .post-text {
+            margin-bottom: 30px;
+            h2 {
+                font-family: bebas;
+                font-size: 26px;
+                letter-spacing: 1.2px;
+                font-weight: 400;
+                margin-bottom: 20px;
+            }
+            p {
+                font-family: "Roboto Mono";
+                line-height: 24px;
+                text-align: justify;
+            }
+        }
+        .comment-area {
+            header {
+                padding-bottom: 7px;
+                border-bottom: 1px solid $primaryColor;
+                font-family: bebas;
+                letter-spacing: 1.2px;
+                margin-bottom: 18px;
+                .comments-count {
+                    margin-left: -10px;
+                    span {
+                        position: relative;
+                        left: 20px;
+                        bottom: 3px;
+                        font-size: 12px;
+                    }
+                }
+                .fa {
+                    font-size: 22px;
+                }
+            }
+            .new-comment {
+                display: flex;
+                .comment-field {
+                    display: flex;
+                    flex-grow: 1;
+                    background-color: $bgColor;
+                    input {
+                        background-color: $bgColor;
+                        width: 100%;
+                        padding-left: 10px;
+                        font-family: "Roboto Mono", monospace;
+                    }
+                }
+            }
+        }
+    }
+}

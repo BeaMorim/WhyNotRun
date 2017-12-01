@@ -1,0 +1,72 @@
+.create-post {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 35px 0;
+    padding: 15px 20px;
+    font-family: bebas;
+    font-size: 20px;
+    letter-spacing: 1.2px;
+    color: $primaryColor;
+    border-top: 5px solid $bgColor;
+    transition: 0.2s all ease;
+
+    .input-group {
+        display: flex;
+        background-color: $bgColor;
+        width: 79%;
+        input {
+            width: 100%;
+            border: 0;
+            margin: 0;
+            padding: 10px 15px;
+            background-color: $bgColor;
+            font-family: "Roboto Mono", monospace;
+            font-size: 16px;
+        }
+    }
+    &.-active {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: fixed;
+        width: 1024px;
+        font-size: 30px;
+        margin-top: 67px;
+        background-color: white;
+        padding: 20px;
+        .input-group {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            box-shadow: none;
+            input {
+                width: 100%;
+                margin: 20px 0;
+
+                &:first-child {
+                    margin-bottom: 0px;
+                }
+            }
+            textarea {
+                border: 0;
+                margin-bottom: 20px;
+                padding: 10px 15px;
+                background-color: $bgColor;
+                font-family: "Roboto Mono", monospace;
+                font-size: 16px;
+            }
+        }
+        .buttons-group {
+            display: flex;
+            justify-content: flex-end;
+            button {
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+}

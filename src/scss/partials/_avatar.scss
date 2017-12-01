@@ -1,0 +1,12 @@
+.avatar {
+    max-width: 60px;
+    max-height: 60px;
+    border-radius: 50%;
+    overflow: hidden; 
+    margin-right: 10px;
+
+    &.-tiny {
+        max-width: 45px;
+        max-height: 45px;
+    }
+}
