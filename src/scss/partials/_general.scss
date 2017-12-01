@@ -60,6 +60,13 @@ button {
     }
 }
 
+a {
+    &:hover {
+        background-color: #fff;
+        color: $primaryColor !important;
+    }
+}
+
 input {
     display: flex;
     align-items: center;
