@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,500,700" rel="stylesheet">
-    <script src="js/all.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,500,700" rel="stylesheet">    
+    <title>Porque Nao Rodar</title>    
+    <script src="js/all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
     <script src="app/scripts.min.js"></script>
     <script src="https://use.fontawesome.com/dd96799f70.js"></script>
     <!-- Angular Material requires Angular.js Libraries -->
@@ -24,12 +25,7 @@
 
 <body ng-app="whynotrun">
     <toolbar ng-controller="toolbarController"></toolbar>
-    <div class="container" ng-controller="feedController">
-        <!-- <create-post></create-post>
-        <post></post> -->
-        <ranking></ranking>
-    </div>
-    
+    <div ui-view></div>    
 </body>
 
 </html>

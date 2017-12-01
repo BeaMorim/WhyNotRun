@@ -1,0 +1,1 @@
+var ranking = angular.module("ranking", []);
