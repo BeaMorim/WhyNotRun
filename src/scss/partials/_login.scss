@@ -1,5 +1,6 @@
 .login {
-    margin-top: 65px;
+    right: 70px;
+    margin: 65px;
     padding: 20px;
     position: fixed;
     display: flex;
@@ -7,4 +8,18 @@
     justify-content: center;
     align-items: center;
     background-color: white;
+
+    .input-form {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+
+        input {
+            padding: 10px 15px;
+        }
+    }
+
+    a {
+        margin-right: 10px;
+    }
 }
