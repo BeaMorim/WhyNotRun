@@ -19,8 +19,26 @@
             }
         }
 
-        span {
+        nav {
+            display: flex;
+            flex-direction: row;
             font-size: 26px;
+
+            >ul {
+                display: flex;
+
+                li {
+                    &:after {
+                        content: '|';
+                        display: block;
+                    }
+                    &:last-child {
+                        &:after {
+                            content: '';
+                        }
+                    }
+                }
+            }
         }
     }
 
