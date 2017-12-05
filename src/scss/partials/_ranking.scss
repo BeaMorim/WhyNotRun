@@ -1,5 +1,11 @@
 .ranking {  
 
+    a {
+        &:hover {
+            color: $primaryColor;
+        }
+    }
+    
     header {
         margin: 40px 0 50px 0;
         display: flex;

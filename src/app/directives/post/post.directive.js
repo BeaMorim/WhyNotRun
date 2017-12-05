@@ -1,5 +1,4 @@
 myApp.controller("postController", [function() {
-
 }])
 .directive("post", function() {
     return {

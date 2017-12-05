@@ -6,7 +6,7 @@
 
 @media(min-width: 1366px) {
     body {
-        background: url(../images/buguinho.png) no-repeat right 5px top 80px fixed;
+        background: url(../images/buguinho.png) no-repeat right 5px top 50px fixed;
         background-size: 10.5%;
         height: auto !important;
     }
@@ -14,7 +14,7 @@
 
 @media(min-width: 1440px) {
     body {
-        background: url(../images/buguinho.png) no-repeat right 5% top 90px fixed;
+        background: url(../images/buguinho.png) no-repeat right 5% top 65px fixed;
         background-size: 11%;
         height: auto !important;
     }
@@ -60,14 +60,17 @@ button {
     }
 }
 
-a {
-    &:hover {
-        color: $primaryColor !important;
-    }
-}
-
 input {
     display: flex;
     align-items: center;
     border: 0px;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: bebas;
+    background-color: $bgColor;
+    height: 50px;
 }

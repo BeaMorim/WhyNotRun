@@ -1,4 +1,4 @@
-var myApp = angular.module("whynotrun", ['ngMaterial', 'feed', 'ui.router'])
+var myApp = angular.module("whynotrun", ['ngMaterial', 'feed', 'ranking', 'ui.router'])
     .config(function($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise("/feed");
 

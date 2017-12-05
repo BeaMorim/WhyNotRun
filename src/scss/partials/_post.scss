@@ -45,12 +45,12 @@
     }
     .reactions-bar {
         display: flex;
-        .agree-bar {
+        .disagree-bar {
             width: 50%;
             height: 5px;
             background-color: $secondaryColor;
         }
-        .disagree-bar {
+        .agree-bar {
             width: 50%;
             height: 5px;
             background-color: $primaryColor;
@@ -110,6 +110,7 @@
                         font-size: 12px;
                     }
                 }
+                
                 .fa {
                     font-size: 22px;
                 }
@@ -126,6 +127,25 @@
                         padding-left: 10px;
                         font-family: "Roboto Mono", monospace;
                     }
+                }
+            }
+        }
+    }
+}
+
+.comments {
+    ul {
+        li {
+            margin-bottom: 20px;
+
+            p {
+                font-size: 16px;
+                font-family: bebas, monospace;
+                letter-spacing: 1.2px;
+
+                span {
+                    font-family: "Roboto Mono", monospace;
+                    font-size: 14px;
                 }
             }
         }
