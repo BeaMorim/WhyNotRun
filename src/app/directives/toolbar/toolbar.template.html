@@ -4,13 +4,11 @@
     <nav class="menu">
         <ul>
             <li><a ui-sref="feed">Feed</a></li>
-            <li>
-                <a ui-sref="ranking">Ranking</a>
-            </li>
-            <li>
-                <a href="#">Entrar</a>
-            </li>
-            <li><a href="#"><button class="red">Cadastrar</button></a></li>
+            <li><a ui-sref="ranking">Ranking</a></li>
+            <li ng-click="loginModalStatus()"><a href="#">Entrar</a></li>
+            <li ng-click="registerModalStatus()"><a href="#"><button class="red">Cadastrar</button></a></li>
         </ul>
     </nav>
 </div>
+<login></login>
+<register></register>

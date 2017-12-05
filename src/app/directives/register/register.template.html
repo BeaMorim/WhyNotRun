@@ -1,0 +1,28 @@
+<div class="modal" layout="row" layout-align="end start" ng-click="registerModalStatus()" ng-if="registerModalActive">
+</div>
+<div class="user_form" ng-if="registerModalActive">
+    <div class="input-form">
+        <img src="/images/envelope.png">
+        <input type="text" placeholder="Email">
+    </div>
+    <div class="input-form">
+        <img src="/images/padlock.png">
+        <input type="password" placeholder="Senha">
+    </div>
+    <div class="input-form">
+        <img src="/images/user.png">
+        <input type="text" placeholder="Nome">
+    </div>
+    <div class="input-form">
+        <img src="/images/user_group.png">
+        <input type="text" placeholder="Profissão">
+    </div>
+    <div class="input-form">
+        <img src="/images/camera.png">
+        <input type="text" placeholder="Foto">
+    </div>
+    <div class="align-self-end" layout="row" layout-align="end center">
+        <a href="#" ng-click="userModalStatus()">ENTRAR</a>
+        <button>CADASTRAR</button>
+    </div>
+</div>
