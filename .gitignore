@@ -3,3 +3,4 @@ build/
 yarn.lock
 src/angular/
 debug.log
+npm-debug.log
