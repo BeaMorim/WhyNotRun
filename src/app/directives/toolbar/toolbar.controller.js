@@ -1,5 +1,11 @@
 myApp
-  .controller("toolbarController", function() {
+  .controller("toolbarController", function($scope) {
+
+    $scope.userModalStatus = function () {
+      $scope.loginModalStatus();
+      $scope.registerModalStatus();
+    }
+
   })
   .directive("toolbar", function() {
     return {
