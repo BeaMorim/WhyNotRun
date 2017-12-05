@@ -65,7 +65,8 @@ input {
     padding-left: 10px;
     display: flex;
     align-items: center;
-    border: 0px;
+    background-color: $bgColor;
+    font-family: "Roboto Momo", monospace;
 }
 
 footer {
