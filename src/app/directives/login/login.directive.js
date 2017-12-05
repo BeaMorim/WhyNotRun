@@ -1,11 +1,11 @@
 myApp
     .controller("loginController", function ($scope) {
-       
-        $scope.modalStatus = function () {
-            if ($scope.modalActive)
-                $scope.modalActive = false;
+
+        $scope.loginModalStatus = function () {
+            if ($scope.loginModalActive)
+                $scope.loginModalActive = false;
             else    
-                $scope.modalActive = true;
+                $scope.loginModalActive = true;
         }
     })
 
