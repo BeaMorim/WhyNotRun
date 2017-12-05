@@ -42,12 +42,12 @@
                 </div>
                 <div class="comment-area">
                     <header>
-                        <div class="comments-count">
+                        <div class="comments-count" ng-click="commentsAreaStatus()">
                             <span>{{post.reactions.comments}} Comentarios</span>
                         </div>
                         <i class="fa fa-facebook" aria-hidden="true"></i>
                     </header>
-                    <div class="comments">
+                    <div class="comments" ng-if="commentsAreaActive">
                         <ul>
                             <li layout="column" layout-align="start start" ng-repeat="comments in post.comments">
                                 <div layout="row" layout-align="start center" class="author-info">

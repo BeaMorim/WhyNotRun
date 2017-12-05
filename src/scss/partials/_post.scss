@@ -120,10 +120,8 @@
                 letter-spacing: 1.2px;
                 margin-bottom: 18px;
                 .comments-count {
-                    margin-left: -10px;
+                    cursor: pointer;
                     span {
-                        position: relative;
-                        left: 20px;
                         bottom: 3px;
                         font-size: 12px;
                     }
