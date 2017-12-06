@@ -20,6 +20,15 @@
             margin: 0;
             padding: 10px 15px;
             font-size: 16px;
+            transition: all 0.3s ease;
+
+            &:hover {
+                padding: 20px 15px;
+            }
+
+            &:focus {
+                padding: 20px 15px;
+            }
         }
     }
 
