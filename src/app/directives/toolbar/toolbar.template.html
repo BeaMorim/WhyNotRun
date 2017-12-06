@@ -1,12 +1,25 @@
 <div class="toolbar" flex="100">
-    <div class="logo"><a href="#"><h1>why<span>NOT</span>run</h1></a></div>
+    <div class="logo">
+        <a href="#">
+            <h1>why
+                <span>NOT</span>run</h1>
+        </a>
+    </div>
     <search-form></search-form>
     <nav class="menu">
         <ul>
-            <li><a ui-sref="feed">Feed</a></li>
-            <li><a ui-sref="ranking">Ranking</a></li>
-            <li><a href="#" ng-click="loginModalStatus()">Entrar</a></li>
-            <li><button class="red" ng-click="registerModalStatus()">Cadastrar</button></li>
+            <li>
+                <a ui-sref="feed">Feed</a>
+            </li>
+            <li>
+                <a ui-sref="ranking">Ranking</a>
+            </li>
+            <li>
+                <a ng-click="loginModalStatus()">Entrar</a>
+            </li>
+            <li>
+                <button ng-click="registerModalStatus()" class="red">Cadastrar</button>
+            </li>
         </ul>
     </nav>
 </div>

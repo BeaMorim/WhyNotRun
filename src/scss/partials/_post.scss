@@ -3,7 +3,7 @@
         transform: rotate(0deg);
     }
     to {
-        transform: rotate(359deg);
+        transform: rotate(360deg);
     }
 }
 
@@ -12,18 +12,23 @@
     .reactions {
         display: flex;
         justify-content: space-between;
+        font-size: 22px;
         align-items: baseline;
         font-family: bebas;
         letter-spacing: 1.2px;
         
         .disagree {
+            color: $secondaryColor;
             a {
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
                 color: $secondaryColor;
-                &:hover {
-                    animation: rotation 2s infinite;
+                transition: all 0.3s ease;
+                font-size: 16px;
+                &:hover {             
+                    cursor: pointer;
+                    transform: scale(1.1);
                 }
                 &:before {
                     content: '';
@@ -40,13 +45,17 @@
             }
         }
         .agree {
+            color: $primaryColor;
             a {
                 display: flex;
                 flex-direction: column;
                 align-items: flex-end;
                 color: $primaryColor;
+                transition: all 0.3s ease;
+                font-size: 16px;
                 &:hover {
-                    animation: rotation 2s infinite;
+                    transform: scale(1.1);
+                    cursor: pointer;
                 }
                 &:before {
                     content: '';

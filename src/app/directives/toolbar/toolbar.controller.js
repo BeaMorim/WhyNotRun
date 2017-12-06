@@ -6,6 +6,8 @@ myApp
       $scope.registerModalStatus();
     }
 
+    
+
   })
   .directive("toolbar", function() {
     return {
