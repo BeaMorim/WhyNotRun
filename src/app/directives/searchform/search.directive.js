@@ -1,8 +1,7 @@
 myApp
-  .controller("searchController", [
-    function() {
-      alert("ola mundo");
-    }
+  .controller("searchController", [ '$scope', function($scope) {
+   
+  } 
   ])
   .directive("searchForm", function() {
     return {

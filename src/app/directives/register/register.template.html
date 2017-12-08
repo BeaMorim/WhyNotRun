@@ -1,28 +1,35 @@
 <div class="modal" layout="row" layout-align="end start" ng-click="registerModalStatus()" ng-if="registerModalActive">
 </div>
-<div class="user-form" ng-if="registerModalActive">
-    <div class="input-form">
-        <img src="/images/envelope.png">
-        <input type="text" placeholder="Email">
-    </div>
-    <div class="input-form">
-        <img src="/images/padlock.png">
-        <input type="password" placeholder="Senha">
-    </div>
-    <div class="input-form">
-        <img src="/images/user.png">
-        <input type="text" placeholder="Nome">
-    </div>
-    <div class="input-form">
-        <img src="/images/userGroup.png">
-        <input type="text" placeholder="Profissão">
-    </div>
-    <div class="input-form">
-        <img src="/images/camera.png">
-        <input type="text" placeholder="Foto">
-    </div>
-    <div class="align-self-end" layout="row" layout-align="end center">
-        <a ng-click="userModalStatus()">ENTRAR</a>
-        <button>CADASTRAR</button>
-    </div>
+<div class="user-form" ng-controller="registerController" ng-if="registerModalActive">
+    <form name="registerForm" ng-submit="newUser()">
+        <div class="input-form">
+            <img src="/images/envelope.png">
+            <input type="email" ng-model="email" placeholder="Email" required>
+        </div>
+        <div class="input-form">
+            <img src="/images/padlock.png">
+            <input type="password" ng-model="password" placeholder="Senha" required>
+        </div>
+        <div class="input-form">
+            <img src="/images/padlock.png">
+            <input type="password" ng-model="confirmPassword" placeholder="Confirmar senha" required>
+        </div>
+        <span class="formWarn" ng-hide="equalPassword()">As senhas precisam ser iguais.</span>
+        <div class="input-form">
+            <img src="/images/user.png">
+            <input type="text" ng-model="name" placeholder="Nome" required>
+        </div>
+        <div class="input-form">
+            <img src="/images/userGroup.png">
+            <input type="text" ng-model="profession" placeholder="Profissão" required>
+        </div>
+        <div class="input-form">
+            <img src="/images/camera.png">
+            <input type="text" ng-model="picture" placeholder="Foto">
+        </div>
+        <div class="align-self-end" layout="row" layout-align="end center">
+            <a ng-click="userModalStatus()">ENTRAR</a>
+            <button type="submit">CADASTRAR</button>
+        </div>
+    </form>
 </div>
