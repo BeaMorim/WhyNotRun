@@ -36,3 +36,13 @@
 
     
 }
+
+
+.formWarn {
+    position: relative;
+    color: $primaryColor;
+    font-family: "Roboto Mono", monospace;
+    font-size: 12px;
+    top: -20px;
+    left: 38px;
+}

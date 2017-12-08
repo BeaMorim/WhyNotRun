@@ -72,8 +72,9 @@ input {
 footer {
     display: flex;
     justify-content: center;
+    font-size: 12px;
     align-items: center;
-    font-family: bebas;
+    font-family: "Roboto Mono", monospace;
     background-color: $bgColor;
     height: 50px;
 }

@@ -5,9 +5,7 @@ myApp
       $scope.loginModalStatus();
       $scope.registerModalStatus();
     }
-
     
-
   })
   .directive("toolbar", function() {
     return {
