@@ -1,13 +1,23 @@
 <div>
-    <div class="create-post" md-whiteframe="3" ng-class="{'-active': createPostActive}">
+    <div class="create-post" md-whiteframe="3" ng-class="{'-active': newPostActive}">
         <span>DETONE UMA TECNOLOGIA!</span>
-        <div class="input-group">
-            <input type="text" md-whiteframe="2" placeholder="Este é seu espaço para desabafar..." ng-click="active()">
-            <i></i>
-            <input type="text" md-whiteframe="2" placeholder="Insira as tecnologias relacionadas a esse tópico. Use enter para separar." ng-if="createPostActive">
-            <textarea rows="5" md-whiteframe="2" placeholder="Detone as tecnologias!" ng-if="createPostActive"></textarea>
-            <div class="buttons-group" ng-if="createPostActive">
-                <button ng-click="inactive()">
+        <div class="post-form">
+            <div class="input-group">
+                <label ng-click="inputGroupActive($event)">Este é seu espaço para desabafar...</label>
+                <input ng-click="createPostActive($event)" ng-blur="inputGroupIsActive($event)">
+            </div>
+            <div class="input-group" ng-if="newPostActive">
+                <label ng-click="inputGroupActive($event)">Insira as tecnologias relacionadas a este post. Digite e aperte enter para confirmar.</label>
+                <md-chips md-on-add='true' ng-model="tecnologies" readonly="false"></md-chips>
+                <br>
+            </div>
+            <div class="input-group -height-auto" ng-if="newPostActive">
+                <label ng-click="inputGroupActive($event)">Detone as tecnologias!</label>
+                <textarea rows="3" ng-blur="inputGroupIsActive($event)" disabled></textarea>
+            </div>
+
+            <div class="buttons-group" ng-if="newPostActive">
+                <button ng-click="createPostInactive()">
                     <i></i>CANCELAR</button>
                 <button class="accept">
                     <i></i>ENVIAR</button>
