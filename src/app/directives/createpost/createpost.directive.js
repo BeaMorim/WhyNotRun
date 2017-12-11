@@ -1,7 +1,14 @@
 myApp
 .controller("createPostController", function($scope) {
     
-    $scope.tecnologies = [];
+    $scope.selectedTechnologies = [];
+    $scope.technologies = [ 
+        { name: "Angular JS" }, 
+        { name: "React"},
+        { name: "Django"},
+        { name: "PHP"}, 
+        { name: "Phyton"}, 
+        { name: "Wordpress"} ];
 
     $scope.createPostActive = function(object) {
         object.target.blur();
@@ -25,6 +32,16 @@ myApp
                 object.target.parentElement.className += " -height-auto";
             }
         }
+    }
+
+    $scope.transformChip = function(chip) {
+        if (angular.isObject(chip)) {
+            return chip;
+          }
+          
+        return {
+            name: chip
+        };
     }
     
 })

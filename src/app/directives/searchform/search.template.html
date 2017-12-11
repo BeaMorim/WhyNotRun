@@ -1,2 +1,13 @@
 <i class="fa fa-search" aria-hidden="true"></i>
-<input type="text" name="search" ng-model="search" ng-keyup="complete(search)">
+<md-autocomplete 
+    ng-disabled="false" 
+    md-no-cache="true"  
+    md-search-text="postsSearchText"  
+    md-items="seachPost in searchPosts  | filter:postsSearchText" 
+    md-item-text="seachPost.name" 
+    md-min-length="0" 
+    md-menu-class="autocomplete-custom-template">
+    <md-item-template>
+        <span> {{seachPost.name}} </span>
+    </md-item-template>
+</md-autocomplete>

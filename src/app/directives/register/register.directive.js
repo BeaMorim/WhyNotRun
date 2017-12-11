@@ -25,6 +25,8 @@ myApp
 
         if($scope.equalPassword) {
           User.registerUser(user);
+        } else {
+          alert("As senhas precisam ser iguais.");
         }
     };
   })
