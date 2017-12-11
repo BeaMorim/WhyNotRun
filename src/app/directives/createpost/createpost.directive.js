@@ -1,7 +1,7 @@
 myApp
 .controller("createPostController", function($scope) {
     
-    $scope.selectedTecnologies = [];
+    $scope.selectedTechnologies = [];
     $scope.technologies = [ 
         { name: "Angular JS" }, 
         { name: "React"},
