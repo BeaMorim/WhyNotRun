@@ -1,4 +1,4 @@
-search-form {
+.search-form {
     width: 40%;
     display: flex;
     color: $primaryColor;
@@ -7,10 +7,20 @@ search-form {
     justify-content: space-between;
     padding: 7px 0px 7px 7px;
 
-    input {
-        width: 95%;
-        margin-top: -2px;
-        color: $primaryColor;
-        font-family: "Roboto Mono", monospace;
+    md-autocomplete {
+        width: 100%;
+
+        md-autocomplete-wrap {
+            width: 100%;
+        }
+
+        input {
+            min-width: 95% !important;
+            margin-top: -2px;
+            color: $primaryColor;
+            font-family: "Roboto Mono", monospace;
+        }
     }
+
+    
 }

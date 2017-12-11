@@ -16,6 +16,10 @@
     }
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> autocomplete
 md-chips {
     width: 100%;
 
@@ -24,18 +28,21 @@ md-chips {
         flex-wrap: wrap;
         align-items: flex-end;
     }
+
+    
     
     .md-chips {
+        display: flex;
+        align-items: baseline;
         padding: 0;
         margin-right: 5px;
         box-shadow: none;
 
         ._md-chip-input-container {
+            margin-top: 5px;
 
-            input {
-                border: 0;
-                margin: 0;
-                box-shadow: 0px 2px rgba(0,0,0,0);
+            .md-input {
+                box-shadow: none !important;
             }
         }
 
@@ -100,9 +107,12 @@ md-chips {
     }
 }
     
+<<<<<<< HEAD
 /*
  *  STYLE 6
  */
+=======
+>>>>>>> autocomplete
 
 #style-6::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.096);
