@@ -1,0 +1,26 @@
+md-autocomplete {
+    height: auto;
+    display: flex;
+    background: inherit;
+
+    md-autocomplete-wrap {
+        height: auto;
+        box-shadow: none !important;
+
+        input {
+            border: 0;
+            margin: 0;
+            box-shadow: 0px 2px #fb4c3d !important;
+        }
+    }
+
+    ._md-visually-hidden {
+        display: none;
+    }
+}
+
+.md-autocomplete-suggestions {
+    li {
+        justify-content: start;
+    }
+}
