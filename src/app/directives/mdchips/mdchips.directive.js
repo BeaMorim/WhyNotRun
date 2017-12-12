@@ -30,11 +30,11 @@ myApp
                         this.appendChip(chipBuffer);
                         this.resetChipBuffer();
                     }
-                    console.log($scope.selectedTechnologies)
 
                     setTimeout(function(){
                         if(document.getElementsByClassName("md-input")[0].value == "" && $scope.selectedTechnologies == "") {
                             element[0].parentElement.className = "input-group";
+                            document.getElementsByClassName("md-input")[0].blur();
                         }
                     }, 500);
                     

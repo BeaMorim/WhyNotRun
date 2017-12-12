@@ -7,7 +7,7 @@
                         Discordo
                     </a>
                 </div>
-                <div>{{post.reactions.agree-post.reactions.disagree}} NOTPOINTS</div>
+                <div>{{post.reactions.agree - post.reactions.disagree}} NOTPOINTS</div>
                 <div class="agree">
                     <a ng-click="postAgree(this)">
                         Concordo
@@ -30,8 +30,8 @@
                     </div>
                     <div class="post-tags" id="style-6">
                         <ul layout="row">
-                            <li class="chips" ng-repeat="tech in post.technologys">
-                                <span class="chip">{{tech.name}}</span>
+                            <li class="chips" ng-repeat="technology in post.technologys">
+                                <span class="chip">{{technology.name}}</span>
                             </li>
                         </ul>
                     </div>

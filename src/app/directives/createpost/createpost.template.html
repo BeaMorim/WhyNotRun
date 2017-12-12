@@ -3,12 +3,12 @@
         <span>DETONE UMA TECNOLOGIA!</span>
         <div class="post-form">
             <div class="input-group">
-                <label ng-click="inputGroupActive($event)">Este é seu espaço para desabafar...</label>
-                <input ng-click="createPostActive($event)" ng-blur="inputGroupIsActive($event)">
+                <label ng-click="inputGroupActive($event)">Digite o título do seu tópico.</label>
+                <input ng-click="createPostActive($event)" ng-model="title" ng-blur="inputGroupIsActive($event)">
             </div>
             <div class="input-group" ng-if="newPostActive">
                 <label ng-click="inputGroupActive($event)">Insira as tecnologias relacionadas a este post. Digite e aperte enter para confirmar.</label>
-                <md-chips md-on-add='true' ng-model="selectedTechnologies" readonly="false" md-transform-chip="transformChip($chip)">
+                <md-chips md-on-add='true' id="style-6" ng-model="selectedTechnologies" readonly="false" md-transform-chip="transformChip($chip)">
                     <md-autocomplete 
                         ng-disabled="false" 
                         md-no-cache="true"  
@@ -27,9 +27,9 @@
                 </md-chips>
                 <br>
             </div>
-            <div class="input-group -height-auto" ng-if="newPostActive">
+            <div class="input-group -textarea" ng-if="newPostActive">
                 <label ng-click="inputGroupActive($event)">Detone as tecnologias!</label>
-                <textarea rows="3" ng-blur="inputGroupIsActive($event)" disabled></textarea>
+                <textarea rows="6" ng-model="text" ng-blur="inputGroupIsActive($event)" disabled></textarea>
             </div>
 
             <div class="buttons-group" ng-if="newPostActive">

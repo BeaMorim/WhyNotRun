@@ -15,6 +15,9 @@ myApp
         $scope.newPostActive = true;
     }
     $scope.createPostInactive = function() {
+        $scope.title = "";
+        $scope.selectedTechnologies = [];
+        $scope.text = "";
         $scope.newPostActive = false;
     }
 
@@ -29,7 +32,7 @@ myApp
             object.target.parentElement.className = "input-group";
             if(object.target.tagName == "TEXTAREA") {
                 object.target.disabled = true;
-                object.target.parentElement.className += " -height-auto";
+                object.target.parentElement.className += " -textarea";
             }
         }
     }
