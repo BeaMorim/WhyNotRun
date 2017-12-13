@@ -1,37 +1,46 @@
 myApp
-  .controller("registerController", function($scope, User) {
-    $scope.registerModalStatus = function() {
-      if ($scope.registerModalActive) $scope.registerModalActive = false;
-      else $scope.registerModalActive = true;
-    };
-
-    $scope.equalPassword = function() {
-      if ($scope.password == $scope.confirmPassword) {
-        return true;
+  .controller("registerController", function ($scope, User) {
+    $scope.registerChangeModalStatus = function () {
+      if ($scope.registerModalActive) {
+        $scope.registerModalActive = false;
       } else {
-          return false;
+        $scope.registerModalActive = true;
       }
     };
 
-    $scope.newUser = function() {
-        var user = {
-            name: $scope.name,
-            email: $scope.email,
-            profession: $scope.profession,
-            password: $scope.password,
-            confirmPassword: $scope.confirmPassword,            
-            picture: $scope.picture
-        };
+    $scope.equalPassword = function () {
+      if ($scope.newUser.password == $scope.newUser.confirmPassword) {
+        return true;
+      } else {
+        return false;
+      }
+    };
 
-        if($scope.equalPassword) {
-          User.registerUser(user);
-        } else {
-          alert("As senhas precisam ser iguais.");
-        }
+    $scope.userRegister = function () {
+      var user = angular.copy($scope.newUser);
+      var userLogin = {
+        email: user.email,
+        password: user.password
+      }
+
+      if ($scope.equalPassword) {
+        User.userRegisterService(user)
+          .then(function () {
+            User.login(userLogin)
+              .then(function (promisse) {
+                $scope.registerChangeModalStatus();
+                localStorage.setItem('user', JSON.stringify(promisse.data));
+              })
+
+          })
+
+      } else {
+        alert("As senhas precisam ser iguais.");
+      }
     };
   })
 
-  .directive("register", function() {
+  .directive("register", function () {
     return {
       templateUrl: "app/directives/register/register.template.html",
       controller: "registerController"

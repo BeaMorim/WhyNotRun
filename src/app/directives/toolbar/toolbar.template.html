@@ -6,7 +6,7 @@
         </a>
     </div>
     <search-form class="search-form" controller="searchController"></search-form>
-    <nav class="menu">
+    <nav class="menu" controller="loginController">
         <ul>
             <li>
                 <a ui-sref="feed">Feed</a>
@@ -14,11 +14,17 @@
             <li>
                 <a ui-sref="ranking">Ranking</a>
             </li>
-            <li>
-                <a ng-click="loginModalStatus()">Entrar</a>
+            <li ng-if="!isLogged()">
+                <a ng-click="loginChangeModalStatus()">Entrar</a>
             </li>
-            <li>
-                <button ng-click="registerModalStatus()" class="red">Cadastrar</button>
+            <li ng-if="!isLogged()">
+                <button ng-click="registerChangeModalStatus()" class="red">Cadastrar</button>
+            </li>
+            <li ng-if="isLogged()">
+                <a ng-click="logout()" href="#">Sair</a>
+            </li>
+            <li ng-if="isLogged()">
+                <img ng-src="{{getUser().picture}}" class="avatar -tiny" alt="User avatar">
             </li>
         </ul>
     </nav>

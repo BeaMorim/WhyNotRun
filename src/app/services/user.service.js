@@ -1,10 +1,15 @@
 myApp.factory("User", function($http) {
-    var _registerUser = function(user) {
+    var _userRegisterService = function(user) {
       return $http.post(apiUrl + "/users", user);
+    };
+
+    var _login = function(user) {
+      return $http.post(apiUrl + "/login", user);
     };
   
     return {
-      registerUser: _registerUser
+      userRegisterService: _userRegisterService,
+      login: _login
     };
   });
   

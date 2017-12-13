@@ -11,4 +11,22 @@ var myApp = angular.module("whynotrun", ['ngMaterial', 'feed', 'ranking', 'ui.ro
               url: "/ranking",
               templateUrl: "app/modules/ranking/ranking.template.html"
           });
-    });
+    })
+
+    .controller("myAppController", function($scope) {
+
+        $scope.getUser = function() {
+            if($scope.isLogged()) {
+                var currentUser = JSON.parse(localStorage.getItem('user'));
+                return currentUser.user;
+            }
+        }
+
+        $scope.isLogged = function () {
+            if (localStorage.getItem('user') === null)
+                return false
+            else
+                return true
+        }
+
+    })

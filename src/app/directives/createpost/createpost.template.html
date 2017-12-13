@@ -18,24 +18,23 @@
                         md-min-length="0" 
                         md-menu-class="autocomplete-custom-template">
                         <md-item-template>
-                           <span> {{technology.name}} </span>
+                           <span> {{technology}} </span>
                         </md-item-template>
                     </md-autocomplete>
                     <md-chip-template>
-                        <span>{{$chip.name}}</span>
+                        <span>{{$chip}}</span>
                     </md-chip-template>
                 </md-chips>
                 <br>
             </div>
-            <div class="input-group -textarea" ng-if="newPostActive">
+            <div class="input-group -textarea" ng-show="newPostActive">
                 <label ng-click="inputGroupActive($event)">Detone as tecnologias!</label>
-                <textarea rows="6" ng-model="text" ng-blur="inputGroupIsActive($event)" disabled></textarea>
+                <textarea rows="6" ng-model="text" ng-blur="inputGroupIsActive($event)"></textarea>
             </div>
-
             <div class="buttons-group" ng-if="newPostActive">
                 <button ng-click="createPostInactive()">
                     <i></i>CANCELAR</button>
-                <button class="accept">
+                <button class="accept" ng-click="createPost()">
                     <i></i>ENVIAR</button>
             </div>
         </div>

@@ -1,9 +1,9 @@
 myApp
   .controller("toolbarController", function($scope) {
 
-    $scope.userModalStatus = function () {
-      $scope.loginModalStatus();
-      $scope.registerModalStatus();
+    $scope.changeModalStatus = function () {
+      $scope.loginChangeModalStatus();
+      $scope.registerChangeModalStatus();
     }
     
   })

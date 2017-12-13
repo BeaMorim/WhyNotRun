@@ -1,19 +1,18 @@
 myApp
-.controller("createPostController", function($scope) {
+.controller("createPostController", function($scope, Feed) {
     
     $scope.selectedTechnologies = [];
-    $scope.technologies = [ 
-        { name: "Angular JS" }, 
-        { name: "React"},
-        { name: "Django"},
-        { name: "PHP"}, 
-        { name: "Phyton"}, 
-        { name: "Wordpress"} ];
+    $scope.technologies = [ "Angular JS", "React", "Django", "PHP", "Phyton", "Wordpress"];
 
     $scope.createPostActive = function(object) {
-        object.target.blur();
-        $scope.newPostActive = true;
+        if(localStorage.getItem('user') != null) {
+            object.target.blur();
+            $scope.newPostActive = true;
+        } else {
+            alert("Você precisa estar logado para criar postagens!")
+        }
     }
+    
     $scope.createPostInactive = function() {
         $scope.title = "";
         $scope.selectedTechnologies = [];
@@ -38,13 +37,28 @@ myApp
     }
 
     $scope.transformChip = function(chip) {
-        if (angular.isObject(chip)) {
-            return chip;
-          }
-          
-        return {
-            name: chip
+        return chip;
+    }
+
+    $scope.createPost = function() {
+        var currentUser = JSON.parse(localStorage.getItem('user'));
+        var post = {
+            title: $scope.title,
+            text: $scope.text,
+            techies: $scope.selectedTechnologies,
+            userId: currentUser.user.id
         };
+
+        console.log(post)
+        
+        Feed.createPost(post, currentUser.token)
+            .then(function (promisse) {
+                alert("Postagem criada com sucesso!")
+                $scope.createPostInactive();
+            })
+            .catch(function() {
+                alert("Erro ao realizar postagens!")
+            })
     }
     
 })

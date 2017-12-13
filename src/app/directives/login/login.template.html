@@ -1,15 +1,16 @@
-<div class="modal" layout="row" layout-align="end start" ng-if="loginModalActive" ng-click="loginModalStatus()"></div>
-<div class="user-form" ng-if="loginModalActive">
+<div class="modal" layout="row" layout-align="end start" ng-show="loginModalActive" ng-click="loginChangeModalStatus()"></div>
+<div class="user-form" ng-show="loginModalActive">
     <div class="input-form">
         <img src="/images/envelope.png">
-        <input type="text" placeholder="Email">
+        <input type="text" ng-model="user.email" placeholder="Email">
     </div>
     <div class="input-form">
         <img src="/images/padlock.png">
-        <input type="password" placeholder="Senha">
+        <input type="password" ng-model="user.password" placeholder="Senha">
     </div>
     <div class="align-self-end" layout="row" layout-align="end center">
         <a ng-click="userModalStatus()">CADASTRAR</a>
-        <button>ENTRAR</button>
+        <button ng-click="login()">ENTRAR</button>
+        
     </div>
 </div>
