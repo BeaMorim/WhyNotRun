@@ -10,6 +10,7 @@ myApp
             $scope.newPostActive = true;
         } else {
             alert("Você precisa estar logado para criar postagens!")
+            $scope.loginChangeModalStatus();
         }
     }
     

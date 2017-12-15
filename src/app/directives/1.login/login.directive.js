@@ -40,7 +40,7 @@ myApp
 
     .directive("login", function () {
         return {
-            templateUrl: "app/directives/login/login.template.html",
+            templateUrl: "app/directives/1.login/login.template.html",
             controller: "loginController"
         }
     })

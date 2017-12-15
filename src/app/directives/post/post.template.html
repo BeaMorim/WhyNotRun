@@ -1,76 +1,78 @@
 <ul ng-controller="feedController">
-    <li ng-repeat="post in posts">
-        <div class="post" id="{{post.id}}">
-            <div class="reactions">
-                <div class="disagree">
-                    <a ng-click="postDisagree(this)">
-                        Discordo
-                    </a>
-                </div>
-                <div>{{post.reactions.agree - post.reactions.disagree}} NOTPOINTS</div>
-                <div class="agree">
-                    <a ng-click="postAgree(this)">
-                        Concordo
-                    </a>
-                </div>
-            </div>
-            <div class="reactions-bar">
-                <div class="disagree-bar" ng-style="{ 'width' : post.reactions.disagreePercent }"></div>
-                <div class="agree-bar" ng-style="{ 'width' : post.reactions.agreePercent }"></div>
-            </div>
-            <div class="post-content" md-whiteframe="3">
-                <header>
-                    <div class="author-info">
-                        <img ng-src="{{post.user.picture}}" alt="User image" class="avatar">
-                        <div class="data">
-                            <p>{{post.user.name}}
-                                <small>{{post.user.profession}}</small>
-                            </p>
-                        </div>
+    <div infinite-scroll='loadPosts()' infinite-scroll-disabled='{{loading}}' infinite-scroll-distance='1'>
+        <li ng-repeat="post in posts">
+            <div class="post" id="{{post.id}}">
+                <div class="reactions">
+                    <div class="disagree">
+                        <a ng-click="postDisagree(this)">
+                            Discordo
+                        </a>
                     </div>
-                    <div class="post-tags" id="style-6">
-                        <ul layout="row">
-                            <li class="chips" ng-repeat="technology in post.technologys">
-                                <span class="chip">{{technology.name}}</span>
-                            </li>
-                        </ul>
+                    <div>{{post.reactions.agree - post.reactions.disagree}} NOTPOINTS</div>
+                    <div class="agree">
+                        <a ng-click="postAgree(this)">
+                            Concordo
+                        </a>
                     </div>
-                </header>
-                <div class="post-text">
-                    <h2>{{post.title}}</h2>
-                    <p>{{post.text}}</p>
                 </div>
-                <div class="comment-area">
+                <div class="reactions-bar">
+                    <div class="disagree-bar" ng-style="{ 'width' : post.reactions.disagreePercent }"></div>
+                    <div class="agree-bar" ng-style="{ 'width' : post.reactions.agreePercent }"></div>
+                </div>
+                <div class="post-content" md-whiteframe="3">
                     <header>
-                        <div class="comments-count" ng-click="commentsAreaStatus()">
-                            <span>{{post.reactions.comments}} Comentarios</span>
+                        <div class="author-info">
+                            <img ng-src="{{post.user.picture}}" alt="User image" class="avatar">
+                            <div class="data">
+                                <p>{{post.user.name}}
+                                    <small>{{post.user.profession}}</small>
+                                </p>
+                            </div>
                         </div>
-                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                        <div class="post-tags" id="style-6">
+                            <ul layout="row">
+                                <li class="chips" ng-repeat="technology in post.technologys">
+                                    <span class="chip">{{technology.name}}</span>
+                                </li>
+                            </ul>
+                        </div>
                     </header>
-                    <div class="comments" ng-if="commentsAreaActive">
-                        <ul>
-                            <li layout="column" layout-align="start start" ng-repeat="comments in post.comments">
-                                <div layout="row" layout-align="start center" class="author-info">
-                                    <img ng-src="{{comments.user.picture}}" alt="User image" class="avatar -tiny">
-                                    <div class="data">
-                                        <p layout="column" layout-align="center start">
-                                            {{comments.user.name}}
-                                            <span>{{comments.text}}</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+                    <div class="post-text">
+                        <h2>{{post.title}}</h2>
+                        <p>{{post.text}}</p>
                     </div>
-                    <div class="new-comment">
-                        <img ng-src="{{getUser().picture}}" alt="User image" class="avatar -tiny">
-                        <div class="comment-field" md-whiteframe="3">
-                            <input type="text" placeholder="Comente sobre este tópico!">
-                            <button>Enviar</button>
+                    <div class="comment-area">
+                        <header>
+                            <div class="comments-count" ng-click="commentsAreaStatus()">
+                                <span>{{post.reactions.comments}} Comentarios</span>
+                            </div>
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                        </header>
+                        <div class="comments" ng-if="commentsAreaActive">
+                            <ul>
+                                <li layout="column" layout-align="start start" ng-repeat="comment in post.comments">
+                                    <div layout="row" layout-align="start center" class="author-info">
+                                        <img ng-src="{{comment.UserPicture}}" alt="User image" class="avatar -tiny">
+                                        <div class="data">
+                                            <p layout="column" layout-align="center start">
+                                                {{comment.UserName}}
+                                                <span>{{comment.Description}}</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="new-comment">
+                            <img ng-src="{{getUser().picture}}" alt="User image" class="avatar -tiny">
+                            <div class="comment-field">
+                                <input type="text" ng-model="text" ng-click="commentFieldActive()" placeholder="Comente sobre este tópico!">
+                                <button ng-click="sendComment(this)">Enviar</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </li>
+        </li>
+    </div>
 </ul>

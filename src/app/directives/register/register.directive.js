@@ -1,5 +1,7 @@
 myApp
   .controller("registerController", function ($scope, User) {
+    $scope.newUser = {};
+    
     $scope.registerChangeModalStatus = function () {
       if ($scope.registerModalActive) {
         $scope.registerModalActive = false;

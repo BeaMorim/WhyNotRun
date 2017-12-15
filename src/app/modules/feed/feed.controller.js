@@ -1,34 +1,33 @@
-feed.controller("feedController", ["Feed", "$http", "$scope", function(Feed, $http, $scope) {   
-    var loadPosts = function() {
-        Feed.getPosts().then(function(data) {
-            $scope.posts = data.data;
-            for(var i = 0; i <= $scope.posts.length-1; i++) {
-                $scope.posts[i].reactions.agreePercent = 100*$scope.posts[i].reactions.agree/($scope.posts[i].reactions.agree + $scope.posts[i].reactions.disagree) + "%";
-                $scope.posts[i].reactions.disagreePercent = 100*$scope.posts[i].reactions.disagree/($scope.posts[i].reactions.agree + $scope.posts[i].reactions.disagree) + "%";
-            }
-        });
-    };
+feed.controller("feedController", ["Feed", "$http", "$scope", function (Feed, $http, $scope) {
+    $scope.posts = [];
 
-    loadPosts();
+    $scope.loading = false;
 
-    var renderBarSize = function(obj) {
-        obj.post.reactions.agreePercent = 100*obj.post.reactions.agree/(obj.post.reactions.agree + obj.post.reactions.disagree) + "%";
-        obj.post.reactions.disagreePercent = 100*obj.post.reactions.disagree/(obj.post.reactions.agree + obj.post.reactions.disagree) + "%";
+    $scope.loadPosts = function () {
+        if ($scope.loading) {
+            return false;
+        }
 
-    };
+        $scope.loading = true;
 
-    $scope.getAgreeBarSize = function(obj) {
-        return (obj.post.reactions.disagreePercent);
-    }
+        Feed.getPosts()
+            .then(function (data) {
 
-    $scope.postAgree = function(obj) {
-        obj.post.reactions.agree++;
-        renderBarSize(obj);
-    }
+                data.data.map((item) => {
+                    item.reactions.agreePercent = 100 * item.reactions.agree / (item.reactions.agree + item.reactions.disagree) + "%";
+                    item.reactions.disagreePercent = 100 * item.reactions.disagree / (item.reactions.agree + item.reactions.disagree) + "%";
+                    $scope.posts.push(item);
+                });
+                
 
-    $scope.postDisagree = function(obj) {
-        obj.post.reactions.disagree++;
-        renderBarSize(obj);
-    }
+                // for (var i = 0; i <= data.data.length - 1; i++) {
+                //     $scope.posts.push(data.data[i]);
+                //     $scope.posts[i].reactions.agreePercent = 100 * $scope.posts[i].reactions.agree / ($scope.posts[i].reactions.agree + $scope.posts[i].reactions.disagree) + "%";
+                //     $scope.posts[i].reactions.disagreePercent = 100 * $scope.posts[i].reactions.disagree / ($scope.posts[i].reactions.agree + $scope.posts[i].reactions.disagree) + "%";
+                // }
+            });
     
+        $scope.loading = false;
+
+    };
 }]);

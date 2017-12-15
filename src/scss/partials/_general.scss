@@ -80,23 +80,14 @@ button {
 
 input {
     border: 0;
-    box-shadow: 0px 2px $primaryColor;
+    border-bottom: 2px solid $primaryColor;
     background-color: inherit;
 
     &:focus {
-        box-shadow: 0px 3px $secondaryColor;
+        border-bottom: 0px 3px solid $secondaryColor;
     }
 }
 
-textarea {
-    border: 0;
-    box-shadow: 0px 2px $primaryColor;
-    background-color: inherit;
-
-    &:focus {
-        box-shadow: 0px 3px $secondaryColor;
-    }
-}
 
 footer {
     display: flex;

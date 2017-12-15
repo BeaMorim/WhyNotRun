@@ -81,7 +81,8 @@ gulp.task("myAppFiles", ["jsApp"], function() {
   js = js
     .pipe(concat("scripts.js", { newLine: ";" }))
     .pipe(ngAnnotate({ add: true }))
-    .pipe(uglify("scripts.js"))
+    // .pipe(uglify("scripts.js"))
+    //babel uglify
     .on("error", function(e) {
         console.log(e);
     })
