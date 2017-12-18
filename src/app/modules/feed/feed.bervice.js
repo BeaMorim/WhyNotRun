@@ -18,6 +18,7 @@ feed.factory("Feed", function($http) {
   }
 
   var _sendComment = function(comment, user, publicationId, token) {
+    console.log(comment)
     return $http ({
       method: 'POST',
       url: apiUrl + "/comments",

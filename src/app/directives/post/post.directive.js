@@ -12,10 +12,10 @@ myApp.controller("postController", ["$scope", "Feed", function($scope, Feed) {
             alert("Você precisa estar logado para comentar as publicações");
     }
 
-    $scope.sendComment = function(obj) {
-        console.log($scope.text);
+    $scope.sendComment = function(obj, text) {
+        console.log(text);
         var currentUser = JSON.parse(localStorage.getItem('user'));
-        Feed.sendComment($scope.text, currentUser.user, obj.post.id, currentUser.token)
+        Feed.sendComment(text, currentUser.user, obj.post.id, currentUser.token)
     }
 
     var renderBarSize = function(obj) {
@@ -25,7 +25,7 @@ myApp.controller("postController", ["$scope", "Feed", function($scope, Feed) {
 
     $scope.postAgree = function(obj) {
         if ($scope.isLogged()) {
-            if(obj.post.reaction != true) {
+            if(obj.post.reactions.like != true) {
                 obj.post.reactions.agree++;
                 if(obj.post.reaction == false) {
                     obj.post.reactions.disagree--;
@@ -48,7 +48,7 @@ myApp.controller("postController", ["$scope", "Feed", function($scope, Feed) {
 
     $scope.postDisagree = function(obj) {
         if ($scope.isLogged()) {
-            if(obj.post.reaction != false) {
+            if(obj.post.reactions.like != false) {
                 obj.post.reactions.disagree++;
                 if(obj.post.reaction == true) {
                     obj.post.reactions.agree--;

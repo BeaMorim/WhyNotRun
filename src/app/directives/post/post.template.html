@@ -66,8 +66,8 @@
                         <div class="new-comment">
                             <img ng-src="{{getUser().picture}}" alt="User image" class="avatar -tiny">
                             <div class="comment-field">
-                                <input type="text" ng-model="text" ng-click="commentFieldActive()" placeholder="Comente sobre este tópico!">
-                                <button ng-click="sendComment(this)">Enviar</button>
+                                <input type="text" ng-model="text" ng-click="commentFieldActive()" placeholder="Comente sobre este tópico!"> 
+                                <button ng-click="sendComment(this, text)">Enviar</button>
                             </div>
                         </div>
                     </div>

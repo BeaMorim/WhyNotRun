@@ -7,6 +7,10 @@ var myApp = angular.module("whynotrun", ['ngMaterial', 'feed', 'ranking', 'ui.ro
               url: "/feed",
               templateUrl: "app/modules/feed/feed.template.html"
           })
+          .state('feed.post', {
+              url: "/:id",
+              templateUrl: "app/directives/post/post.template.html"
+          })
           .state('ranking', {
               url: "/ranking",
               templateUrl: "app/modules/ranking/ranking.template.html"
