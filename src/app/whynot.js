@@ -7,9 +7,13 @@ var myApp = angular.module("whynotrun", ['ngMaterial', 'feed', 'ranking', 'ui.ro
               url: "/feed",
               templateUrl: "app/modules/feed/feed.template.html"
           })
-          .state('feed.post', {
-              url: "/:id",
-              templateUrl: "app/directives/post/post.template.html"
+          .state('post', {
+              url: "/feed/:id",
+              templateUrl: "app/directives/post/post.template.html",
+              controller: "sharedPostController"    
+            //   controller: function($stateParams) {
+            //       console.log($stateParams.id)
+            //   }
           })
           .state('ranking', {
               url: "/ranking",

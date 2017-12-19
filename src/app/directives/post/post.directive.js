@@ -1,4 +1,4 @@
-myApp.controller("postController", ["$scope", "Feed", function($scope, Feed) {
+myApp.controller("postController", ["$scope", "Feed", function($scope, Feed) {  
 
     $scope.commentsAreaStatus = function() {
         if($scope.commentsAreaActive)
@@ -13,7 +13,6 @@ myApp.controller("postController", ["$scope", "Feed", function($scope, Feed) {
     }
 
     $scope.sendComment = function(obj, text) {
-        console.log(text);
         var currentUser = JSON.parse(localStorage.getItem('user'));
         Feed.sendComment(text, currentUser.user, obj.post.id, currentUser.token)
     }
@@ -68,7 +67,6 @@ myApp.controller("postController", ["$scope", "Feed", function($scope, Feed) {
         }
     }
 
-    
 }])
 
 .directive("post", function() {

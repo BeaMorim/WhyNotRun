@@ -18,7 +18,6 @@ feed.factory("Feed", function($http) {
   }
 
   var _sendComment = function(comment, user, publicationId, token) {
-    console.log(comment)
     return $http ({
       method: 'POST',
       url: apiUrl + "/comments",
@@ -47,10 +46,18 @@ feed.factory("Feed", function($http) {
     })
   }
 
+  var _getPostById = function(publicationId) {
+    return $http ({
+      method: 'GET', 
+      url: apiUrl + '/publications/' + publicationId
+    })
+  }
+
   return {
     getPosts: _getPosts,
     createPost: _createPost,
     sendComment: _sendComment,
-    react: _react
+    react: _react,
+    getPostById: _getPostById
   };
 });
