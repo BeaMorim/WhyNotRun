@@ -1,7 +1,7 @@
 myApp
   .controller("toolbarController", function($scope) {
 
-    $scope.changeModalStatus = function () {
+    $scope.userChangeModalStatus = function () {
       $scope.loginChangeModalStatus();
       $scope.registerChangeModalStatus();
     }
@@ -9,6 +9,7 @@ myApp
   })
   .directive("toolbar", function() {
     return {
-      templateUrl: "app/directives/toolbar/toolbar.template.html"
+      templateUrl: "app/directives/toolbar/toolbar.template.html",
+      controller: "toolbarController"
     };
   });
