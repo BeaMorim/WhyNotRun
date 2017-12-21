@@ -72,7 +72,7 @@ feed.factory("Feed", function($http) {
   var _loadMoreComments = function(publicationId, lastCommentId, limit) {
     return $http({
       method: 'GET',
-      url: apiUrl + "comments?publicationId=" + publicationId + "&lastCommentId=" + lastCommentId + "&limit=" + limit
+      url: apiUrl + "/comments?publicationId=" + publicationId + "&lastCommentId=" + lastCommentId + "&limit=" + limit
     }) 
   }
   
@@ -83,6 +83,7 @@ feed.factory("Feed", function($http) {
     sugestPosts: _sugestPosts,
     sugestTechnologies: _sugestTechnologies,
     sendComment: _sendComment,
+    loadMoreComments: _loadMoreComments,
     react: _react
   };
 });
