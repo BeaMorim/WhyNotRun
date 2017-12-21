@@ -68,6 +68,13 @@ feed.factory("Feed", function($http) {
       }
     })
   };
+
+  var _loadMoreComments = function(publicationId, lastCommentId, limit) {
+    return $http({
+      method: 'GET',
+      url: apiUrl + "comments?publicationId=" + publicationId + "&lastCommentId=" + lastCommentId + "&limit=" + limit
+    }) 
+  }
   
   return {
     getPosts: _getPosts,

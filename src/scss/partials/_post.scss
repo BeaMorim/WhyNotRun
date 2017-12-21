@@ -140,7 +140,9 @@
                 }
             }
             .new-comment {
+                margin-top: 10px;
                 display: flex;
+                
                 .comment-field {
                     display: flex;
                     flex-grow: 1;
@@ -167,6 +169,9 @@
 }
 
 .comments {
+    height: 150px;
+    overflow: scroll;
+
     ul {
         li {
             margin-bottom: 20px;

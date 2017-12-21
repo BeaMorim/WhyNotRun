@@ -1,22 +1,5 @@
 myApp.controller("postController", ["$scope", "Feed", function($scope, Feed) {  
 
-    $scope.commentsAreaStatus = function() {
-        if($scope.commentsAreaActive)
-            $scope.commentsAreaActive = false;
-        else
-            $scope.commentsAreaActive = true;
-    }
-
-    $scope.commentFieldActive = function() {
-        if(!$scope.isLogged())
-            alert("Você precisa estar logado para comentar as publicações");
-    }
-
-    $scope.sendComment = function(obj, text) {
-        var currentUser = JSON.parse(localStorage.getItem('user'));
-        Feed.sendComment(text, currentUser.user, obj.post.id, currentUser.token)
-    }
-
     var renderBarSize = function(obj) {
         obj.post.reactions.agreePercent = 100*obj.post.reactions.agree/(obj.post.reactions.agree + obj.post.reactions.disagree) + "%";
         obj.post.reactions.disagreePercent = 100*obj.post.reactions.disagree/(obj.post.reactions.agree + obj.post.reactions.disagree) + "%";
@@ -43,7 +26,7 @@ myApp.controller("postController", ["$scope", "Feed", function($scope, Feed) {
         } else {
             alert("Você precisa estar logado para reagir às publicações")
         }
-    }
+    };
 
     $scope.postDisagree = function(obj) {
         if ($scope.isLogged()) {
@@ -65,7 +48,45 @@ myApp.controller("postController", ["$scope", "Feed", function($scope, Feed) {
         } else {
             alert("Você precisa estar logado para reagir às publicações")
         }
-    }
+    };
+
+    $scope.commentsChangeAreaStatus = function() {
+        if($scope.commentsAreaActive)
+            $scope.commentsAreaActive = false;
+        else
+            $scope.commentsAreaActive = true;
+    };
+
+    $scope.commentFieldActive = function() {
+        if(!$scope.isLogged())
+            alert("Você precisa estar logado para comentar as publicações");
+    };
+
+    $scope.sendComment = function(obj, text) {
+        if(text != null && text != "") {
+            var currentUser = JSON.parse(localStorage.getItem('user'));
+            Feed.sendComment(text, currentUser.user, obj.post.id, currentUser.token)
+                .then(function(){
+                    $scope.text = ""
+                })
+        }
+    };
+
+    $scope.loadMoreComments = function(obj) {
+        if ($scope.loadingComments) {
+            return false;
+        }
+
+        $scope.loadingComments = true;
+
+        var lastCommentIndex = obj.post.comments.length - 1
+        
+        // Feed.loadMoreComments(obj.post.id, obj.post.comments[lastCommentIndex].id, 5)
+        //     .then(function (promisse) {
+        //     });
+            
+        $scope.loadingComments = false;
+    };
 
 }])
 
