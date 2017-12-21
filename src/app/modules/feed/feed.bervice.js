@@ -1,7 +1,9 @@
 feed.factory("Feed", function($http) {
   var page = 0;
 
-  var _getPosts = function() {
+  var _getPosts = function(posts) {
+    if(posts == "")
+      page = 0;
     page++;
     return $http.get(apiUrl + "/publications?page=" + page);
   };
@@ -11,7 +13,7 @@ feed.factory("Feed", function($http) {
       method: 'GET', 
       url: apiUrl + '/publications/' + publicationId
     })
-  }
+  };
 
   var _createPost = function(post, token) {
     return $http ({
@@ -22,14 +24,14 @@ feed.factory("Feed", function($http) {
       },
       data: post
     })
-  }
+  };
 
   var _sugestTechnologies = function(text) {
     return $http({
       method: 'GET',
       url: apiUrl + "/technologies?text=" + text
     })
-  }
+  };
 
   var _react = function(reaction, publicationId, user, token) {
     return $http ({
@@ -43,7 +45,7 @@ feed.factory("Feed", function($http) {
         userId: user.id
       }
     })
-  }
+  };
 
   var _sendComment = function(comment, user, publicationId, token) {
     return $http ({
@@ -58,7 +60,7 @@ feed.factory("Feed", function($http) {
         userId: user.id
       }
     })
-  }
+  };
   
   return {
     getPosts: _getPosts,

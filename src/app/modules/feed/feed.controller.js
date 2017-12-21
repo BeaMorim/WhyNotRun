@@ -10,10 +10,9 @@ feed.controller("feedController", ["Feed", "$http", "$scope", function (Feed, $h
 
         $scope.loading = true;
 
-        Feed.getPosts()
-            .then(function (data) {
-
-                data.data.map((item) => {
+        Feed.getPosts($scope.posts)
+            .then(function (promisse) {
+                promisse.data.publications.map((item) => {
                     item.reactions.agreePercent = 100 * item.reactions.agree / (item.reactions.agree + item.reactions.disagree) + "%";
                     item.reactions.disagreePercent = 100 * item.reactions.disagree / (item.reactions.agree + item.reactions.disagree) + "%";
                     $scope.posts.push(item);
