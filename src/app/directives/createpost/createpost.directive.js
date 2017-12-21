@@ -2,7 +2,8 @@ myApp
 .controller("createPostController", function($scope, Feed) {
     
     $scope.selectedTechnologies = [];
-    $scope.technologies = [ "Angular JS", "React", "Django", "PHP", "Phyton", "Wordpress"];
+    $scope.technologies = []
+    // $scope.technologies = [ "Angular JS", "React", "Django", "PHP", "Phyton", "Wordpress"];
 
     $scope.createPostActive = function(object) {
         if(localStorage.getItem('user') != null) {
@@ -38,7 +39,11 @@ myApp
     }
 
     $scope.transformChip = function(chip) {
-        return chip;
+        if (angular.isObject(chip)) {
+            return chip;
+        } else {
+            return {name: chip}
+        }
     }
 
     $scope.createPost = function() {
@@ -49,17 +54,29 @@ myApp
             techies: $scope.selectedTechnologies,
             userId: currentUser.user.id
         };
-
-        console.log(post)
         
         Feed.createPost(post, currentUser.token)
             .then(function (promisse) {
-                alert("Postagem criada com sucesso!")
+                //reload
                 $scope.createPostInactive();
             })
-            .catch(function() {
-                alert("Erro ao realizar postagens!")
+    }
+
+
+
+
+    $scope.sugestTechnologies = function(text) {
+        var technologies = [];
+        var promisseResult = Feed.sugestTechnologies(text)
+            .then(function(promisse){
+                technologies = promisse.data;
+                return promisse.data;
+            }) .catch(function(e) {
+                technologies = [];
+                return technologies;
             })
+        return  promisseResult;
+        
     }
     
 })

@@ -1,5 +1,5 @@
 <div>
-    <div class="create-post" md-whiteframe="3" ng-class="{'-active': newPostActive}">
+    <div class="create-post" md-whiteframe="3" ng-class="{'-active': newPostActive}" ng-controller="createPostController as ctrl">
         <span>DETONE UMA TECNOLOGIA!</span>
         <div class="post-form">
             <div class="input-group">
@@ -10,19 +10,19 @@
                 <label ng-click="inputGroupActive($event)">Insira as tecnologias relacionadas a este post. Digite e aperte enter para confirmar.</label>
                 <md-chips md-on-add='true' id="style-6" ng-model="selectedTechnologies" readonly="false" md-transform-chip="transformChip($chip)">
                     <md-autocomplete 
-                        ng-disabled="false" 
+                        ng-disabled="false"
                         md-no-cache="true"  
-                        md-search-text="technologiesSearchText"  
-                        md-items="technology in technologies  | filter:technologiesSearchText" 
+                        md-search-text="ctrl.technologiesSearchText" 
+                        md-items="technology in sugestTechnologies(ctrl.technologiesSearchText)" 
                         md-item-text="technology.name" 
                         md-min-length="0" 
                         md-menu-class="autocomplete-custom-template">
                         <md-item-template>
-                           <span> {{technology}} </span>
+                           <span> {{technology.name}} </span>
                         </md-item-template>
                     </md-autocomplete>
                     <md-chip-template>
-                        <span>{{$chip}}</span>
+                        <span>{{$chip.name}}</span>
                     </md-chip-template>
                 </md-chips>
                 <br>
