@@ -97,4 +97,7 @@ footer {
     font-family: "Roboto Mono", monospace;
     background-color: $bgColor;
     height: 50px;
+    width: 100%;
+    position: absolute;
+    bottom: -100px;
 }
