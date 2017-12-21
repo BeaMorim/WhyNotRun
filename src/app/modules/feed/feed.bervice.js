@@ -26,6 +26,13 @@ feed.factory("Feed", function($http) {
     })
   };
 
+  var _sugestPosts = function(text) {
+    return $http({
+      method: 'GET',
+      url: apiUrl + "/publications?text=" + text
+    })
+  };
+
   var _sugestTechnologies = function(text) {
     return $http({
       method: 'GET',
@@ -66,6 +73,7 @@ feed.factory("Feed", function($http) {
     getPosts: _getPosts,
     getPostById: _getPostById,
     createPost: _createPost,
+    sugestPosts: _sugestPosts,
     sugestTechnologies: _sugestTechnologies,
     sendComment: _sendComment,
     react: _react
