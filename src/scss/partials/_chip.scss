@@ -13,6 +13,26 @@
         letter-spacing: 1.2px;
         padding: 5px 10px;
         width: max-content;
+        display: flex;
+        flex-direction: row;
+    }
+
+    &.-small {
+        display: flex;
+        align-items: center;
+
+        .chip{
+            height: 20px;
+            padding: 5px;
+            margin-right: 2px;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+
+            &:last-child {
+                margin-right: 0px;
+            }
+        }
     }
 }
 

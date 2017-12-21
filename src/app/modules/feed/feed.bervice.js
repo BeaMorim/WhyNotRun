@@ -26,6 +26,13 @@ feed.factory("Feed", function($http) {
     })
   };
 
+  var _sugestPosts = function(text) {
+    return $http({
+      method: 'GET',
+      url: apiUrl + "/publications?text=" + text
+    })
+  };
+
   var _sugestTechnologies = function(text) {
     return $http({
       method: 'GET',
@@ -61,13 +68,22 @@ feed.factory("Feed", function($http) {
       }
     })
   };
+
+  var _loadMoreComments = function(publicationId, lastCommentId, limit) {
+    return $http({
+      method: 'GET',
+      url: apiUrl + "/comments?publicationId=" + publicationId + "&lastCommentId=" + lastCommentId + "&limit=" + limit
+    }) 
+  }
   
   return {
     getPosts: _getPosts,
     getPostById: _getPostById,
     createPost: _createPost,
+    sugestPosts: _sugestPosts,
     sugestTechnologies: _sugestTechnologies,
     sendComment: _sendComment,
+    loadMoreComments: _loadMoreComments,
     react: _react
   };
 });
