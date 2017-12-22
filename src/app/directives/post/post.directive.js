@@ -20,11 +20,12 @@ myApp.controller("postController", ["$scope", "Feed", function($scope, Feed) {
                 //mandar null para o back
                 obj.post.reaction = null;
                 obj.post.reactions.agree--;
-                renderBarSize(obj); 
+                renderBarSize(obj);                
             }
             
         } else {
-            alert("Você precisa estar logado para reagir às publicações")
+            alert("Você precisa estar logado para reagir às publicações");
+            $scope.loginChangeModalStatus();
         }
     };
 
@@ -43,10 +44,11 @@ myApp.controller("postController", ["$scope", "Feed", function($scope, Feed) {
                 //mandar null para o back
                 obj.post.reaction = null;
                 obj.post.reactions.disagree--;
-                renderBarSize(obj); 
+                renderBarSize(obj);
             }
         } else {
-            alert("Você precisa estar logado para reagir às publicações")
+            alert("Você precisa estar logado para reagir às publicações");
+            $scope.loginChangeModalStatus();
         }
     };
 
@@ -60,6 +62,7 @@ myApp.controller("postController", ["$scope", "Feed", function($scope, Feed) {
     $scope.commentFieldActive = function() {
         if(!$scope.isLogged())
             alert("Você precisa estar logado para comentar as publicações");
+            $scope.loginChangeModalStatus();
     };
 
     $scope.sendComment = function(obj, text) {

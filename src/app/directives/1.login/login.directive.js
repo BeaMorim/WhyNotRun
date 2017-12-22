@@ -1,27 +1,20 @@
 myApp
     .controller("loginController", function ($scope, User) {
-
-        $scope.loginChangeModalStatus = function () {
-            if ($scope.loginModalActive) {
-                $scope.loginModalActive = false;
-            }
-            else {
-                $scope.loginModalActive = true;
-            }
+        var cleanForm = function() {
+            $scope.user.email = "";
+            $scope.user.password = "";
         }
 
         $scope.login = function () {
             var userLogin = angular.copy($scope.user);
-                
             User.login(userLogin)
                 .then(function (promisse) {
                     localStorage.setItem('user', JSON.stringify(promisse.data));
-                    $scope.loginChangeModalStatus()
+                    $scope.loginChangeModalStatus();
                     alert("Login realizado com sucesso!")
                 })
                 .catch(function (err) {
-                    $scope.user.email = "";
-                    $scope.user.password = "";
+                    cleanForm();
                     alert("Email ou senha inválidos!");
                 });
             }

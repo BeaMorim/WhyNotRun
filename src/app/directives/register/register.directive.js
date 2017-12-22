@@ -2,6 +2,15 @@ myApp
   .controller("registerController", function ($scope, User) {
     $scope.newUser = {};
     
+    var cleanForm = function() {
+      $scope.newUser.email = "";
+      $scope.newUser.password = "";
+      $scope.newUser.confirmPassword = "";
+      $scope.newUser.name = "";
+      $scope.newUser.profession = "";
+      $scope.newUser.picture = "";
+    }
+
     $scope.registerChangeModalStatus = function () {
       if ($scope.registerModalActive) {
         $scope.registerModalActive = false;
@@ -32,6 +41,7 @@ myApp
               .then(function (promisse) {
                 $scope.registerChangeModalStatus();
                 localStorage.setItem('user', JSON.stringify(promisse.data));
+                cleanForm();                
               })
 
           })

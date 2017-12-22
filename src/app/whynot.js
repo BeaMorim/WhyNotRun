@@ -37,4 +37,15 @@ var myApp = angular.module("whynotrun", ['ngMaterial', 'feed', 'ranking', 'ui.ro
                 return true
         }
 
+        $scope.loginChangeModalStatus = function () {
+            if ($scope.loginModalActive) {
+                $scope.loginModalActive = false;
+            }
+            else {
+                $scope.loginModalActive = true;
+            }
+        }
+
+        
+
     })
