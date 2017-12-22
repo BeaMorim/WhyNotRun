@@ -40,9 +40,9 @@ myApp
 
     $scope.transformChip = function(chip) {
         if (angular.isObject(chip)) {
-            return chip;
+            return chip.name;
         } else {
-            return {name: chip}
+            return chip
         }
     }
 
@@ -54,11 +54,9 @@ myApp
             techies: $scope.selectedTechnologies,
             userId: currentUser.user.id
         };
-        
         Feed.createPost(post, currentUser.token)
             .then(function (promisse) {
-                //reload
-                $scope.createPostInactive();
+                location.reload();
             })
     }
 
