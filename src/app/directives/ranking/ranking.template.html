@@ -1,12 +1,12 @@
-<div class="ranking">
+<div class="ranking" controller="rankingController">
     <header>
         <h2><strong>RANKING</strong> DE TECNOLOGIAS</h2>
         <nav>
             <span>ORNENAR POR:&thinsp;</span>
             <ul>
-                <li><a href="#">NOME</a></li>
-                <li><a href="#">NOTPOINTS</a></li>
-                <li><a href="#">POSTS</a></li>
+                <li><a ui-sref="ranking({page: 1, order: name})" ng-click="reorderRanking('name')">NOME</a></li>
+                <li><a ng-click="reorderRanking('points')">NOTPOINTS</a></li>
+                <li><a ng-click="reorderRanking('posts')">POSTS</a></li>
             </ul>
         </nav>
     </header>
@@ -48,7 +48,7 @@
 
     <div class="ranking-list">
         <ul>
-            <div infinite-scroll='loadRanking()' infinite-scroll-disabled='{{loadingRanking}}' infinite-scroll-distance='1'>
+            <div infinite-scroll='loadRanking()' infinite-scroll-disabled='{{loadingRanking}}'>
                 <li ng-repeat="tech in ranking.slice(3, ranking.length)">
                     <div class="tecnology">
                         <div class="chip">{{$index + 4}}</div>

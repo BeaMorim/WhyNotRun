@@ -68,24 +68,26 @@ myApp.controller("postController", ["$scope", "Feed", function($scope, Feed) {
             Feed.sendComment(text, currentUser.user, obj.post.id, currentUser.token)
                 .then(function(){
                     $scope.text = ""
+                    Feed.getPostById(obj.post.id)
+                        .then(function(promisse) {
+                            console.log(promisse.data)
+                            obj.post = promisse.data
+                        })
                 })
         }
     };
 
     $scope.loadMoreComments = function(obj) {
-        if ($scope.loadingComments) {
-            return false;
-        }
-
-        $scope.loadingComments = true;
 
         var lastCommentIndex = obj.post.comments.length - 1
         
-        // Feed.loadMoreComments(obj.post.id, obj.post.comments[lastCommentIndex].id, 5)
-        //     .then(function (promisse) {
-        //     });
+        Feed.loadMoreComments(obj.post.id, obj.post.comments[lastCommentIndex].id, 5)
+            .then(function (promisse) {
+                promisse.data.map(item => {
+                    $scope.post.comments.push(item);
+                })
+            });
             
-        $scope.loadingComments = false;
     };
 
 }])

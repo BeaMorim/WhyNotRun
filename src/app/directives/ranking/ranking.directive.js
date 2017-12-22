@@ -1,14 +1,32 @@
 myApp
     .controller("rankingController", function($scope, Ranking){
 
+        $scope.ranking = [];
+        $scope.loadingRanking = false;
+
         $scope.loadRanking = function(){
-            Ranking.getRanking()
-                .then(function(data) {
-                    $scope.ranking = data.data;
+            if ($scope.loadingRanking) {
+                return false;
+            }
+    
+            $scope.loadingRanking = true;
+            var order = "points";
+            Ranking.getRanking(order, $scope.ranking).then(function(promisse) {
+                promisse.data.map(item => {
+                    $scope.ranking.push(item);
                 });
+            });
+
+            $scope.loadingRanking = false;
         }
 
-        $scope.loadRanking();
+        $scope.reorderRanking = function(order) {
+            Ranking.getRanking(order, $scope.ranking).then(function(data) {
+                $scope.ranking = data.data;
+            })
+        };
+
+        //$scope.loadRanking();
     })
 
     .directive("ranking", function() {

@@ -53,19 +53,18 @@
                         </header>
                         <div class="comments" ng-if="commentsAreaActive">
                             <ul>
-                               <div infinite-scroll='loadMoreComments(this)' infinite-scroll-disabled='{{loadingComments}}' infinite-scroll-distance='1'>
-                                    <li layout="column" layout-align="start start" ng-repeat="comment in post.comments">
-                                        <div layout="row" layout-align="start center" class="author-info">
-                                            <img ng-src="{{comment.user.picture}}" alt="User image" class="avatar -tiny">
-                                            <div class="data">
-                                                <p layout="column" layout-align="center start">
-                                                    {{comment.user.name}}
-                                                    <span>{{comment.text}}</span>
-                                                </p>
-                                            </div>
+                                <li layout="column" layout-align="start start" ng-repeat="comment in post.comments">
+                                    <div layout="row" layout-align="start center" class="author-info">
+                                        <img ng-src="{{comment.user.picture}}" alt="User image" class="avatar -tiny">
+                                        <div class="data">
+                                            <p layout="column" layout-align="center start">
+                                                {{comment.user.name}}
+                                                <span>{{comment.text}}</span>
+                                            </p>
                                         </div>
-                                    </li>
-                                </div>
+                                    </div>
+                                </li>
+                                <a ng-click="loadMoreComments(this)" ng-if="post.comments.length < post.reactions.comments">Carregar mais...</a>
                             </ul>
                         </div>
                         <div class="new-comment">
