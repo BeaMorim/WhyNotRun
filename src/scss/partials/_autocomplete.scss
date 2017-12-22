@@ -22,5 +22,9 @@ md-autocomplete {
 .md-autocomplete-suggestions {
     li {
         justify-content: start;
+
+        md-autocomplete-parent-scope {
+            width: 100vh;
+        }
     }
 }

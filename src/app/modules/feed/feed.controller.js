@@ -1,14 +1,14 @@
 feed.controller("feedController", ["Feed", "$http", "$scope", function (Feed, $http, $scope) {
     $scope.posts = [];
 
-    $scope.loading = false;
+    $scope.loadingPosts = false;
 
     $scope.loadPosts = function () {
-        if ($scope.loading) {
+        if ($scope.loadingPosts) {
             return false;
         }
 
-        $scope.loading = true;
+        $scope.loadingPosts = true;
 
         Feed.getPosts($scope.posts)
             .then(function (promisse) {
@@ -26,7 +26,7 @@ feed.controller("feedController", ["Feed", "$http", "$scope", function (Feed, $h
                 // }
             });
     
-        $scope.loading = false;
+        $scope.loadingPosts = false;
 
     };
 }]);

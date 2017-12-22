@@ -62,9 +62,6 @@ myApp
             })
     }
 
-
-
-
     $scope.sugestTechnologies = function(text) {
         var technologies = [];
         var promisseResult = Feed.sugestTechnologies(text)

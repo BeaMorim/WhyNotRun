@@ -1,7 +1,7 @@
 <!-- <div class="container" ng-controller="feedController"> -->
     <create-post></create-post>
     <ul ng-controller="feedController">
-        <div infinite-scroll='loadPosts()' infinite-scroll-disabled='{{loading}}' infinite-scroll-distance='1'>
+        <div infinite-scroll='loadPosts()' infinite-scroll-disabled='{{loadingPosts}}' infinite-scroll-distance='1'>
             <li ng-repeat="post in posts">
                 <post></post>
             </li>

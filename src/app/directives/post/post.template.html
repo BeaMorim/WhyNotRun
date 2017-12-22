@@ -44,7 +44,7 @@
                     </div>
                     <div class="comment-area">
                         <header>
-                            <div class="comments-count" ng-click="commentsAreaStatus()">
+                            <div class="comments-count" ng-click="commentsChangeAreaStatus()">
                                 <span>{{post.reactions.comments}} Comentarios</span>
                             </div>
                             <div class="fb-share-button" data-href="http://localhost:3002/#/feed/5a391522b6d425192c647b4f" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A3002%2F%23%2Ffeed%2F5a391522b6d425192c647b4f&amp;src=sdkpreparse">Compartilhar</a></div>
@@ -55,19 +55,20 @@
                             <ul>
                                 <li layout="column" layout-align="start start" ng-repeat="comment in post.comments">
                                     <div layout="row" layout-align="start center" class="author-info">
-                                        <img ng-src="{{comment.UserPicture}}" alt="User image" class="avatar -tiny">
+                                        <img ng-src="{{comment.user.picture}}" alt="User image" class="avatar -tiny">
                                         <div class="data">
                                             <p layout="column" layout-align="center start">
-                                                {{comment.UserName}}
-                                                <span>{{comment.Description}}</span>
+                                                {{comment.user.name}}
+                                                <span>{{comment.text}}</span>
                                             </p>
                                         </div>
                                     </div>
                                 </li>
+                                <a ng-click="loadMoreComments(this)" ng-if="post.comments.length < post.reactions.comments">Carregar mais...</a>
                             </ul>
                         </div>
                         <div class="new-comment">
-                            <img ng-src="{{getUser().picture}}" alt="User image" class="avatar -tiny">
+                            <img ng-src="{{getUser().picture}}" ng-if="isLogged()" alt="User image" class="avatar -tiny">
                             <div class="comment-field">
                                 <input type="text" ng-model="text" ng-click="commentFieldActive()" placeholder="Comente sobre este tópico!"> 
                                 <button ng-click="sendComment(this, text)">Enviar</button>

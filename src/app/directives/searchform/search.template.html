@@ -2,12 +2,20 @@
 <md-autocomplete 
     ng-disabled="false" 
     md-no-cache="true"  
-    md-search-text="postsSearchText"  
-    md-items="seachPost in searchPosts  | filter:postsSearchText" 
+    md-search-text="searchCtrl.postsSearchText"  
+    md-items="searchPost in sugestPost(searchCtrl.postsSearchText)" 
     md-item-text="seachPost.name" 
     md-min-length="0" 
     md-menu-class="autocomplete-custom-template">
     <md-item-template>
-        <span> {{seachPost.name}} </span>
+        <div layout="row" layout-align="space-between center" flex=100>
+            <span> {{searchPost.title}} </span>
+            <div class="chips -small">
+                <div ng-repeat="technology in searchPost.technologies"  class="chip">
+                    <span>{{technology.name}}</span>
+                </div>
+            </div>
+        </div>
     </md-item-template>
 </md-autocomplete>
+
